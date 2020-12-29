@@ -50,3 +50,14 @@ services:
   FROM nginx
   COPY --from=0 /app/build /usr/share/nginx/html
   .............................................
+
+  GIT
+  1. create a new repository
+  2. copy the url from the ssh
+  3 Do git init in the local folder
+  4. git add .
+  5. git commit -m"initial commit"
+  6. git remote add origin https://github.com/andykofi/docker-react.git
+  7. git push origin master
+
+  SET UP TRAVIS == like jenkins
