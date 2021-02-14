@@ -2,7 +2,19 @@ sudo: required
 services:
   - docker
 before_install:
-      -  docker build -t andykofi/docker-react -f Dockerfile.dev .
+  -  docker build -t andykofi/docker-react -f Dockerfile.dev .
+deploy:
+   provider: elasticbeanstalk
+   region: " eu-west-2"
+   app: "docker-react1"
+   env: "Dockerreact1-env"
+   bucket_name: "elasticbeanstalk-eu-west-2-006523304205"
+   bucket_path: "docker-react1"
+   on:
+     branch: master
+   access_key_id: $AWS_ACCESS_KEY
+   secret_access_key:
+     secure: "$AWS_SECRET_KEY"
 
-script:
-  -  docker run andykofi/docker-react npm run test -- --coverage
+
+
